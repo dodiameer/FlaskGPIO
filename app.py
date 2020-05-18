@@ -3,6 +3,7 @@ import RPi.GPIO as GPIO
 import board
 import adafruit_dht
 import time
+import atexit
 app = Flask(__name__)
 # Setting up GPIO
 GPIO.setmode(GPIO.BCM)
@@ -10,6 +11,12 @@ GPIO.setup(18, GPIO.OUT)
 GPIO.setup(17, GPIO.OUT)
 GPIO.setup(23, GPIO.OUT)
 dht = adafruit_dht.DHT11(board.D4)
+
+@atexit.register
+def cleanup_exiter():
+    print("\nRunning cleanup before exit")
+    GPIO.cleanup()
+    print("Cleanup done!\nExiting...")
 
 def genericToggle(pin):
     try:
