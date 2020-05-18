@@ -1,9 +1,8 @@
 async function ajaxToggle(pin) {
     let res = await fetch(`/pin/${pin}/toggle`)
     let data = await res.json()
-    if (!data.done) {
-        ajaxToggle(pin)
-    }
+    let displayedState = document.querySelector(`#state${pin}`)
+    displayedState.textContent = `State: ${data.state ? "ON" : "OFF"}`
 }
 async function ajaxTemperature() {
     let res = await fetch('/temperature')

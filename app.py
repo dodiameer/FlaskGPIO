@@ -7,9 +7,11 @@ import atexit
 app = Flask(__name__)
 # Setting up GPIO
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(18, GPIO.OUT)
-GPIO.setup(17, GPIO.OUT)
-GPIO.setup(23, GPIO.OUT)
+outputPins = [18, 17, 23]
+for pin in outputPins:
+    GPIO.setup(pin, GPIO.OUT)
+    GPIO.output(pin, GPIO.LOW)
+
 dht = adafruit_dht.DHT11(board.D4)
 
 @atexit.register
@@ -21,9 +23,9 @@ def cleanup_exiter():
 def genericToggle(pin):
     try:
         GPIO.output(pin, not GPIO.input(pin))
-        return True
+        return {"done": True, "state": GPIO.input(pin)}
     except:
-        return False
+        return {"done": False, "state": GPIO.input(pin)}
 
 def getTemperature():
     try:
@@ -40,8 +42,8 @@ def index():
 
 @app.route('/pin/<int:pin>/toggle')
 def toggleHandler(pin):
-    done = genericToggle(pin)
-    return jsonify({"done": done})
+    res = genericToggle(pin)
+    return jsonify(res)
 
 @app.route('/temperature')
 def temperatureHandler():

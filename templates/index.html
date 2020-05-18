@@ -12,9 +12,18 @@
 <body>
     <h1>FlaskGPIO</h1>
     <h3>A demo of using flask to integrate with RPi.GPIO</h3>
-    <p class="center"><button onclick="ajaxToggle(18)">Toggle pin 18</button></p>
-    <p class="center"><button onclick="ajaxToggle(17)">Toggle pin 17</button></p>
-    <p class="center"><button onclick="ajaxToggle(23)">Toggle pin 23</button></p>
+    <p class="center">
+        <button onclick="ajaxToggle(18)">Toggle pin 18</button> - 
+        <span id="state18">State: OFF</span>
+    </p>
+    <p class="center">
+        <button onclick="ajaxToggle(17)">Toggle pin 17</button> - 
+        <span id="state17">State: OFF</span>
+    </p>
+    <p class="center">
+        <button onclick="ajaxToggle(23)">Toggle pin 23</button> - 
+        <span id="state23">State: OFF</span>
+    </p>
     <h3>Temperature: <span id="temperature"></span> C&deg;</h3>
     <h3>Humidity: <span id="humidity"></span>&percnt;</h3>
 </body>
