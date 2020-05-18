@@ -8,6 +8,7 @@ app = Flask(__name__)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(18, GPIO.OUT)
 GPIO.setup(17, GPIO.OUT)
+GPIO.setup(23, GPIO.OUT)
 dht = adafruit_dht.DHT11(board.D4)
 
 def genericToggle(pin):
