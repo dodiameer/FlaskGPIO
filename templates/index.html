@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Server</title>
+    <script defer src="/static/scripts/index.js"></script>
+    <style>
+        @import url('/static/css/style.css');
+    </style>
+</head>
+<body>
+    <h1>FlaskGPIO</h1>
+    <h3>A demo of using flask to integrate with RPi.GPIO</h3>
+    <p class="center"><button onclick="ajaxToggle(18)">Toggle pin 18</button></p>
+    <p class="center"><button onclick="ajaxToggle(17)">Toggle pin 17</button></p>
+    <h3>Temperature: <span id="temperature"></span> C&deg;</h3>
+    <h3>Humidity: <span id="humidity"></span>&percnt;</h3>
+</body>
+</html>
