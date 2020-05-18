@@ -8,6 +8,8 @@ import atexit
 # FLask instance
 app = Flask(__name__)
 
+### Raspi-specific code ###
+
 # Setting up GPIO
 GPIO.setmode(GPIO.BCM)
 outputPins = [18, 17, 23]
