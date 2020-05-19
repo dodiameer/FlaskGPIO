@@ -23,6 +23,7 @@ dht = adafruit_dht.DHT11(board.D4)
 # Exit cleanup code
 @atexit.register
 def cleanup_exiter():
+    time.sleep(1)
     print("\nRunning cleanup before exit")
     GPIO.cleanup()
     print("Cleanup done!\nExiting...")
@@ -35,13 +36,12 @@ def genericToggle(pin):
     except:
         return {"done": False, "state": GPIO.input(pin)}
 
-# Temperature getter (Spagetti code... Proper Bolognese)
+# Temperature getter (NO LONGER SPAGHETII CODE!)
 def getTemperature():
     try:
         return {"temperature": dht.temperature, "humidity": dht.humidity}
     except RuntimeError:
-        time.sleep(2)
-        return {"temperature": dht.temperature, "humidity": dht.humidity}
+        getTemperature()
 
 ### Flask logic code ###
 
