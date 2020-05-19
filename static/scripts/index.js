@@ -20,4 +20,4 @@ async function ajaxTemperature() {
     query2.textContent = data.humidity
 }
 ajaxTemperature()
-setInterval(ajaxTemperature, 3000)
+setInterval(ajaxTemperature, 3003)
