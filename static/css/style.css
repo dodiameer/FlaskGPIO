@@ -1,6 +1,8 @@
+@import url('/static/css/roboto.css');
 body {
     color: #261f3a;
     background-color: #ececec;
+    font-family: 'Roboto', sans-serif;
 }
 
 h1, h3 {
