@@ -1,4 +1,5 @@
-@import url('/static/css/roboto.css');
+@import url('/static/css/roboto.css');  
+  
 body {
     color: #261f3a;
     background-color: #ececec;
@@ -34,6 +35,7 @@ h1, h3 {
 }
 
 button {
+    font-family: 'Roboto', sans-serif;
     display: inline-block;
     text-align: center;
     padding: 0.25em;
