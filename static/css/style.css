@@ -44,4 +44,10 @@ button {
     color: aqua;
     border: 2px solid aqua;
     box-shadow: 0px 0px 5px black;
+    transition-duration: 0.5s;
+}
+
+button:active {
+    box-shadow: 0px 0px 15px aqua;
+    transition-duration: 0.5s;
 }
